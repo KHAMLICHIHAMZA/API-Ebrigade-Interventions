@@ -30,12 +30,12 @@ class Utilisateur
     static public function getEmploye($data)
     {
 
-        $id =$data['EmployeeID'];
+        $id =$data['P_ID'];
         try {
-            $query='SELECT * FROM employee WHERE EmployeeID=:EmployeeID';
+            $query='SELECT * FROM pompier WHERE P_ID=:P_ID';
             $stmt= DB::connect()->prepare($query);
-            $stmt->execute(array(":EmployeeID" => $id));
-            $employe = $stmt->fetch(PDO::FETCH_OBJ);
+            $stmt->execute(array(":pompierid" => $id));
+            $employe = $stmt->fetchAll();
             return $employe;
         } catch (PDOException $ex) {
             echo'erer' . $ex->getMessage();

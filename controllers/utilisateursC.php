@@ -16,16 +16,13 @@ class UtilisateursController{
 
    // $employeid=$_POST['EmployeeID'];
 
-    if(isset($_POST['EmployeeID']))
+    if(isset($_POST['P_ID']))
     {
 
-    $data =array('EmployeeID'=> $_POST['EmployeeID']);
+    $data =array('P_ID'=> $_POST['P_ID']);
     $employe= Utilisateur::getEmploye($data);
     //return $employe;
     $d=json_encode($employe);
-
-        die(print_r($d));
-        
     return $d;
 
 
