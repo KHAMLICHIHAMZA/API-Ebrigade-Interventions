@@ -22,5 +22,27 @@ class Utilisateur
         $stmt=null;
     }
 
+    static public function update()
+    {}
+
+    static public function delete(){}
+
+    static public function getEmploye($data)
+    {
+
+        $id =$data['EmployeeID'];
+        try {
+            $query='SELECT * FROM employee WHERE EmployeeID=:EmployeeID';
+            $stmt= DB::connect()->prepare($query);
+            $stmt->execute(array(":EmployeeID" => $id));
+            $employe = $stmt->fetch(PDO::FETCH_OBJ);
+            return $employe;
+        } catch (PDOException $ex) {
+            echo'erer' . $ex->getMessage();
+        }
+
+    }
+
+    
 }
 
