@@ -15,7 +15,7 @@ class Utilisateur
     static public function getByP_CODE($P_CODE)
     {
         $stmt=DB::connect()->prepare('SELECT * FROM pompier WHERE P_CODE LIKE :P_CODE');
-        $stmt->bindParam(':P_CODE', $P_CODE);
+        $stmt->bindParam(':P_CODE',$P_CODE);
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
@@ -34,8 +34,8 @@ class Utilisateur
         try {
             $query='SELECT * FROM pompier WHERE P_ID=:P_ID';
             $stmt= DB::connect()->prepare($query);
-            $stmt->execute(array(":pompierid" => $id));
-            $employe = $stmt->fetchAll();
+            $stmt->execute(array(":P_ID" => $id));
+            $employe = $stmt->fetch(PDO::FETCH_ASSOC);
             return $employe;
         } catch (PDOException $ex) {
             echo'erer' . $ex->getMessage();

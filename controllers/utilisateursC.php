@@ -14,18 +14,22 @@ class UtilisateursController{
     }
     static public function getOne(){
 
-   // $employeid=$_POST['EmployeeID'];
-
     if(isset($_POST['P_ID']))
     {
 
     $data =array('P_ID'=> $_POST['P_ID']);
     $employe= Utilisateur::getEmploye($data);
-    //return $employe;
-    $d=json_encode($employe);
-    return $d;
 
+    $d=json_encode($employe);
+echo $d;
+    }
+    else
+    {
+
+    die(print_r("dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"));
 
     }
+
+
     }
 }
