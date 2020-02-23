@@ -59,7 +59,7 @@ $controllerfilename = $controller . 'C.php';
 //On inclut les fichiers nécessaires
 include CONTROLLERS . DS . $controllerfilename;
 //On construit le nom de la classe que l'on va instancier
-$controllerclassname = ucfirst($controller) . 'Controller';
+$controllerclassname = ucfirst($controller) ;
 //On instancie cette classe
 $c = new $controllerclassname();
 //On appelle la méthode demandée (ou la méthode par défaut)
