@@ -32,7 +32,7 @@ class Utilisateur
 
         $id =$data['P_ID'];
         try {
-            $query='SELECT `P_ID`,`P_PRENOM`,`P_PRENOM2`,`P_NOM`,`P_GRADE`,`P_STATUT`,`P_EMAIL` FROM pompier WHERE P_ID=:P_ID';
+            $query='SELECT `P_ID`,`P_PRENOM`,`P_PRENOM2`,`P_NOM`,`P_GRADE`,`P_STATUT`,`P_EMAIL`,`P_SEXE`,`P_PROFESSION` FROM pompier WHERE P_ID=:P_ID';
             $stmt= DB::connect()->prepare($query);
             $stmt->bindParam(':P_ID',$id);
             $stmt->execute();

@@ -1,6 +1,6 @@
 <?php
 require_once 'Model/Utilisateur.php';
-class UtilisateursController{
+class Utilisateurs{
     static public function ListUtilisateur(){
         $response = Utilisateur::getAll();
          return json_encode($response);
@@ -17,7 +17,7 @@ class UtilisateursController{
     {
     $data =array('P_ID'=> $_GET['P_ID']);
     $employe= Utilisateur::getEmploye($data);
-    $d=json_encode($employe);
+    $d=json_encode($employe,true);
     return $d; 
    }
     else
