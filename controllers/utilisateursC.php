@@ -13,16 +13,13 @@ class UtilisateursController{
             return  json_encode($response);
     }
     static public function getOne(){
-
-    if(isset($_POST['P_ID']))
+    if(isset($_GET['P_ID']))
     {
-
-    $data =array('P_ID'=> $_POST['P_ID']);
+    $data =array('P_ID'=> $_GET['P_ID']);
     $employe= Utilisateur::getEmploye($data);
-
     $d=json_encode($employe);
-echo $d;
-    }
+    return $d; 
+   }
     else
     {
 
