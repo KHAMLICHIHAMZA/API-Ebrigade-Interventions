@@ -36,7 +36,7 @@ if(isset($_POST['submit']))
 {
 $data= array
 (
-'P_' => $_POST['EmployeeID'],
+'P_git' => $_POST['EmployeeID'],
 'Title' => $_POST['Title'],
 'NationalIDNumber' => $_POST['NationalIDNumber'],
 'BirthDate' => $_POST['BirthDate'],
