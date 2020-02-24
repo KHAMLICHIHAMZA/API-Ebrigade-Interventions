@@ -1,6 +1,6 @@
 <?php
 require_once 'Model/Utilisateur.php';
-class UtilisateursController{
+class Utilisateurs{
     static public function ListUtilisateur(){
         $response = Utilisateur::getAll();
          return json_encode($response);
@@ -29,3 +29,4 @@ class UtilisateursController{
     }
     }
 }
+?>
