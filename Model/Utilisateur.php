@@ -44,6 +44,45 @@ class Utilisateur
 
     }
 
+    static public function up($data)
+    {
+
+$query=('UPDATE `pompier` SET `P_NOM`=:P_NOM,
+                              `P_PRENOM`=:P_PRENOM,
+                              `P_SEXE`=:P_SEXE,
+                              `P_GRADE`=:P_GRADE,
+                              `P_PROFESSION`=:P_PROFESSION,
+                              `P_STATUT`=:P_STATUT,
+                              `P_EMAIL`=:P_EMAIL;
+        ');        
+        $stmt=DB::connect()->prepare($query);
+
+        $stmt->bindParam(':P_NOM', $data['P_NOM']);
+
+        $stmt->bindParam(':P_PRENOM', $data['P_PRENOM']);
+
+        $stmt->bindParam(':P_SEXE', $data['P_SEXE']);
+
+        $stmt->bindParam(':P_GRADE', $data['P_GRADE']);
+
+        $stmt->bindParam(':P_PROFESSION', $data['P_¨PROFESSION']);
+
+        $stmt->bindParam(':P_STATUT', $data['P_STATUT']);
+
+        $stmt->bindParam(':P_EMAIL', $data['P_EMAIL']);
+
+        if($stmt->execute()){
+            return 'ok';
+
+        }else{
+
+            return 'error';
+        }
+        $stmt->close;
+        $stmt = null;
+
+    }
+
     
 }
 

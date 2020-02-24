@@ -23,10 +23,43 @@ class Utilisateurs{
     else
     {
 
-    die(print_r("dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"));
+    die(print_r("erreru"));
 
     }
 
+
+    }
+
+static public function update(){
+        
+if(isset($_POST['submit']))
+{
+$data= array
+(
+'P_' => $_POST['EmployeeID'],
+'Title' => $_POST['Title'],
+'NationalIDNumber' => $_POST['NationalIDNumber'],
+'BirthDate' => $_POST['BirthDate'],
+'Gender' => $_POST['Gender']
+
+);
+
+
+$result =Employe::update2($data);
+
+
+
+if($result === 'ok')
+{
+
+    echo "<script type='text/javascript'>window.top.location='http://localhost/management-employee/';</script>"; exit;
+
+
+}else {
+    echo $result;
+}
+
+}
 
     }
 }
