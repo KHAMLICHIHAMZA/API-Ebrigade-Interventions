@@ -13,20 +13,21 @@ class Utilisateurs{
             return  json_encode($response);
     }
     static public function getOne(){
-
-   // $employeid=$_POST['EmployeeID'];
-
-    if(isset($_POST['P_ID']))
+    if(isset($_GET['P_ID']))
+    {
+    $data =array('P_ID'=> $_GET['P_ID']);
+    $employe= Utilisateur::getEmploye($data);
+    $d=json_encode($employe,true);
+    return $d; 
+   }
+    else
     {
 
-    $data =array('P_ID'=> $_POST['P_ID']);
-    $employe= Utilisateur::getEmploye($data);
-    //return $employe;
-    $d=json_encode($employe);
-    return $d;
-
+    die(print_r("dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"));
 
     }
+
+
     }
 }
 ?>

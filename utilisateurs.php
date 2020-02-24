@@ -2,13 +2,18 @@
 
 /*
 require_once  'controllers/UtilisateursControllers.php';
-if(isset($_GET['P_CODE'])){
+
+if(isset($_GET['P_CODE']))
+{
     // retourne L utilisateurs en fonction du p_code
     $response = UtilisateurController::SearchUtilisateur($_GET['P_CODE']);
-}else{
+}
+else
+{
     //retourne tous les utilisateurs
     $response = UtilisateurController::ListUtilisateur();
 }
+
 echo $response;
 */
 
@@ -39,10 +44,13 @@ if (isset($_GET['c'])) {
 if (isset($_GET['m'])) {
     //Il y a un paramètre de précisé: c'est le nom de la méthode demandée.
     $method = strtolower(trim($_GET['m']));
-} else {
+}
+ else 
+{
     //Pas de paramètre => la méthode par défaut est la méthode INDEX
     $method = 'index';
 }
+
 
 // =====================  Détermination de la id à utiliser: Est-ce que j'ai un paramètre 'id' dans mon URL?
 if (isset($_GET['P_CODE'])) {
@@ -55,7 +63,7 @@ if (isset($_GET['P_CODE'])) {
 
 // =====================  Appel
 //On construit le nom du fichier qui contient le contrôleur appelé (ou le contrôleur par défaut)
-$controllerfilename = $controller . 'C.php';
+$controllerfilename = $controller .'C.php';
 //On inclut les fichiers nécessaires
 include CONTROLLERS . DS . $controllerfilename;
 //On construit le nom de la classe que l'on va instancier
