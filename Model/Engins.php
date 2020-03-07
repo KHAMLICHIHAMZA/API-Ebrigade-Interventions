@@ -21,4 +21,15 @@ class Engins
         $stmt->closeCursor();
         $stmt=null;
     }
+    
+    static public function getEngin($i)
+    {
+        $stmt=DB::connect()->prepare('SELECT TV_CODE, TV_LIBELLE FROM  type_vehicule WHERE TV_LIBELLE ="'.$i.'"');
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->closeCursor();
+        $stmt=null;
+    }
 }
+//$resp=Engins::getRoleEngins("CCFM");
+//echo (json_encode($resp));
