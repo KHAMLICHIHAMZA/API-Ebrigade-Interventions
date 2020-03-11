@@ -13,7 +13,9 @@ class Utilisateurs
             $response = Utilisateur::getByP_CODE($P_CODE);
             return  json_encode($response);
     }
+
     static public function getOne()
+
     {
     if(isset($_GET['P_ID']))
     {
@@ -22,14 +24,16 @@ class Utilisateurs
     $d=json_encode($employe,true);
     return $d; 
    }
+
     else
+
     {
 
     die(print_r("erreru de remplissage de formulaire"));
 
     }
 
-    }
+}
 
 
     public function auth()
@@ -67,9 +71,8 @@ class Utilisateurs
         }
     else{
         var_dump ($_POST);
-       // header('location:http://localhost/Interventions-Management/login2');
         
-        die("errrreur eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeede login");
+        die("errrreur  login");
 
         
   }
@@ -77,32 +80,40 @@ class Utilisateurs
     }
 static public function update()
 {
-        
-{
-    $data= array(
-'P_git' => $_POST['EmployeeID'],
-'Title' => $_POST['Title'],
-'NationalIDNumber' => $_POST['NationalIDNumber'],
-'BirthDate' => $_POST['BirthDate'],
-'Gender' => $_POST['Gender']
-
+         $id=$_POST['post']['P_ID'];
+         $nom=$_POST['post']['nom'];
+         $prenom=$_POST['post']['prenom'];
+         $email=$_POST['post']['email'];
+         $sexe=$_POST['post']['sexe_'];
+         $grade=$_POST['post']['grade'];
+         $profession=$_POST['post']['profession'];
+         $status=$_POST['post']['status_'];
+         $data= array("nom"=>$nom,
+                      "prenom"=>$prenom,
+                      "email"=>$email,
+                      "sexe"=>$sexe,
+                      "grade"=>$grade,
+                      "profession"=>$profession,
+                      "status"=>$status,
+                      "id"=>$id
 );
 
+$result =Utilisateur::up($data);
 
-    $result =Employe::update2($data);
+if($result == 'ok')
+{
+    
+    var_dump($result);
+
+header('Location: localhost/home');
 
 
-
-    if ($result === 'ok') {
-        echo "<script type='text/javascript'>window.top.location='http://localhost/management-employee/';</script>";
-        exit;
-    } else {
-        echo $result;
-    }
+}    
+   
 }
 
     }
-}
+
 
 
 ?>

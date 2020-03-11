@@ -5,8 +5,6 @@ class Engin{
     //recuperation de la liste des engins
     static public function getAll(){
         $response = Engins::getAllEngins();
-        
-        //die(print_r($Role));
         return json_encode($response,true);
     }
 

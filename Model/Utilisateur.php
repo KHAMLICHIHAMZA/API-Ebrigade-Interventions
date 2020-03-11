@@ -71,19 +71,20 @@ $query='UPDATE `pompier` SET  `P_NOM`=:P_NOM,
                             '; 
 
         $stmt=DB::connect()->prepare($query);
-
-        $stmt->bindParam(':P_NOM', $data['P_NOM']);
-        $stmt->bindParam(':P_ID', $data['P_ID']);
-        $stmt->bindParam(':P_PRENOM', $data['P_PRENOM']);
-        $stmt->bindParam(':P_SEXE', $data['P_SEXE']);
-        $stmt->bindParam(':P_GRADE', $data['P_GRADE']);
-        $stmt->bindParam(':P_PROFESSION', $data['P_¨PROFESSION']);
-        $stmt->bindParam(':P_STATUT', $data['P_STATUT']);
-        $stmt->bindParam(':P_EMAIL', $data['P_EMAIL']);
+        $stmt->bindParam(':P_ID', $data['id']);
+        $stmt->bindParam(':P_NOM', $data['nom']);
+        $stmt->bindParam(':P_PRENOM', $data['prenom']);
+        $stmt->bindParam(':P_SEXE', $data['sexe']);
+        $stmt->bindParam(':P_GRADE',$data['grade'] );
+        $stmt->bindParam(':P_PROFESSION', $data['profession']);
+        $stmt->bindParam(':P_STATUT', $data['status']);
+        $stmt->bindParam(':P_EMAIL', $data['email']);
 
         if($stmt->execute())
         {
-            return 'ok';
+         
+    return 'ok';
+            
         }
 
         else
